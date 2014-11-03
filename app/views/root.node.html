@@ -1,11 +1,26 @@
-<div class="row">
-    <div class="column" ui-view>
-        <h1 class="ui dividing header">
-            {{ node.name }}
-        </h1>
-
-        <p>
-            {{ node }}
-        </p>
+<md-toolbar>
+    <div class="md-toolbar-tools">
+        <span><a ui-sref="root.nodes">Évenement</a> / </span><span>{{node.name}}</span>
+        <p flex></p>
+        <a md-button ui-sref=".edit">Edit</a>
     </div>
-</div>
+</md-toolbar>
+<md-content class="md-padding" ui-view>
+
+    <md-subheader>
+        du {{node.start | date:'mediumDate'}} au {{node.end | date:'mediumDate'}}
+    </md-subheader>
+
+    <md-card ng-if="node.post && node.post.length > 0">
+        post
+        {{node.post}}
+    </md-card>
+    <md-card ng-if="node.vote && node.vote.length > 0">
+        vote
+        {{node.vote}}
+    </md-card>
+    <md-card ng-if="node.comments && node.comments.length > 0">
+        comments
+        {{node.comments}}
+    </md-card>
+</md-content>

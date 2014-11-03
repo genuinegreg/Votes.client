@@ -1,37 +1,24 @@
-<div class="ui column row">
-    <div class="four wide column">
-        <a class="ui labeled icon positive fluid button" ui-sref="root.node.create">
-            <i class="plus icon"></i>
-            Ajouter
+<md-toolbar>
+    <div class="md-toolbar-tools">
+        <span><a ui-sref="root.nodes">Évenement</a></span>
+    </div>
+</md-toolbar>
+<md-content class="md-padding">
+    <md-list>
+
+        <a md-item ui-sref="root.node({nodeId: node.id})" ng-repeat="node in nodes">
+            <md-item-content>
+                <div class="md-tile-content">
+                    <h3>{{node.name}}</h3>
+                    <h4>{{node.createdAt | date:'medium'}}</h4>
+
+                    <p>
+                        plop
+                    </p>
+                </div>
+            </md-item-content>
+            <md-divider ng-if="!$last"></md-divider>
         </a>
 
-        <div class="ui vertical text menu">
-            <div class="header item">Trier par</div>
-            <a class="active item">
-                <i class="calendar icon"></i> Date
-            </a>
-            <a class="item">
-                <i class="mail icon"></i> Activité
-            </a>
-        </div>
-
-    </div>
-    <div class="twelve wide column">
-        <div class="ui list">
-
-            <div class="item" ng-repeat="node in nodes | orderBy:'start'">
-                <i class="big trophy icon"></i>
-
-                <div class="content">
-                    <a class="header" ui-sref="root.node({nodeId: node.id})">
-                        {{node.name}}
-                    </a>
-
-                    <div class="description">
-                        {{node.createdAt}}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+    </md-list>
+</md-content>

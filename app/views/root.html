@@ -1,18 +1,24 @@
-<div class="ui fixed transparent inverted main large menu">
-    <div class="ui page grid">
-        <div class="title item">
-            <strong>Votes</strong>
-        </div>
-        <div class="right menu">
-            <div class="item">
-                <div class="ui button">Sign-in</div>
-            </div>
-            <div class="item">
-                <div class="ui button">Log-in</div>
-            </div>
-        </div>
-    </div>
-</div>
+<div layout="horizontal" flex>
+    <md-sidenav layout="vertical" class="md-sidenav-left md-whiteframe-z5" component-id="left" is-locked-open="$media('md')">
 
-<div class="ui page grid" style="padding-top:70px;" ui-view>
+        <md-toolbar class="md-theme-indigo">
+            <h1 class="md-toolbar-tools">Votes</h1>
+        </md-toolbar>
+        <md-content class="md-padding" layout="vertical">
+
+            <p hide show-md>
+                This sidenav is locked open on your device. To go back to the default behavior,
+                narrow your display.
+            </p>
+        </md-content>
+
+    </md-sidenav>
+
+    <md-content flex class="md-theme-indigo">
+
+
+        <div layout="vertical" layout-fill ui-view>
+        </div>
+
+    </md-content>
 </div>

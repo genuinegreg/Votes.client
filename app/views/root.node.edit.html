@@ -1,0 +1,65 @@
+<form class="ui form segment" novalidate
+      name="nodeForm">
+
+    <md-text-float label="Titre" ng-model="node.name"></md-text-float>
+    <md-text-float label="Start" ng-model="node.start"></md-text-float>
+    <md-text-float label="End" ng-model="node.end"></md-text-float>
+
+    <md-button>+ Description</md-button>
+    <md-button>+ Vote</md-button>
+
+    <div class="field">
+        <label>Titre</label>
+
+        <div class="ui left labeled input"
+             ng-class="{error: nodeForm['node.name'].$invalid && nodeForm['node.name'].$dirty}">
+            <input type="text" placeholder="Titre"
+                   ng-model="node.name" name="node.name"
+                   required ng-minlength="4">
+
+            <div ng-messages="nodeForm['node.name'].$error">
+                <div class="ui red pointing above ui label"
+                     ng-message="required">Le nom du formulaire est requi
+                </div>
+
+                <div class="ui red pointing above ui label"
+                     ng-message="minlength">Le nom doit faire 4 caractères ou plus
+                </div>
+            </div>
+            <div class="ui corner label">
+                <i class="icon asterisk"></i>
+            </div>
+        </div>
+    </div>
+    <div class="ui two fields">
+        <div class="field">
+            <label>Date</label>
+
+            <div class="ui labeled input"
+                 ng-class="{error: nodeForm['node.start'].$invalid && nodeForm['node.start'].$dirty}">
+                <input type="date" placeholder="Date"
+                       ng-model="node.start" name="node.start"
+                       required>
+
+                <div ng-messages="nodeForm['node.start'].$error">
+                    <div class="ui red pointing above ui label"
+                         ng-message="required">La date de debut est requise
+                    </div>
+                </div>
+
+                <div class="ui corner label">
+                    <i class="icon asterisk"></i>
+                </div>
+            </div>
+        </div>
+        <div class="field">
+            <label>Date de fin</label>
+
+            <div class="ui input">
+                <input type="date" placeholder="Date"
+                       ng-model="node.end" name="node.end"
+                       ng-min="node.start">
+            </div>
+        </div>
+    </div>
+</form>

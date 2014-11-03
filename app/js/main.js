@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('Votes.client', ['restmod', 'ui.router', 'ngTouch', 'ngSanitize', 'ngAnimate'])
+angular.module('Votes.client', ['restmod', 'ngMaterial', 'ui.router', 'ngTouch', 'ngMessages', 'ngSanitize', 'ngAnimate'])
     .config(function ($stateProvider, $urlRouterProvider) {
         //
         // For any unmatched url, redirect to /state1
@@ -23,6 +23,9 @@ angular.module('Votes.client', ['restmod', 'ui.router', 'ngTouch', 'ngSanitize',
                 resolve: {
                     node: function(Node, $stateParams) {
                         console.log('resolve', $stateParams.nodeId);
+                        if (!$stateParams.nodeId) {
+                            return Node.$build({});
+                        }
                         return Node.$find($stateParams.nodeId);
                     }
                 },
@@ -33,7 +36,7 @@ angular.module('Votes.client', ['restmod', 'ui.router', 'ngTouch', 'ngSanitize',
             })
             .state('root.node.edit', {
                 url: "/edit",
-                templateUrl: "views/root.node.create.html",
-                controller: 'NodeCreateCtrl'
+                templateUrl: "views/root.node.edit.html",
+                controller: 'NodeEditCtrl'
             })
     });

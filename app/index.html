@@ -2,34 +2,37 @@
 <head>
 
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no"/>
-    <link rel="stylesheet" href="style/style.css"/>
-    <link rel="stylesheet" href="bower_components/semantic-ui/build/packaged/css/semantic.min.css">
 
 </head>
 
 <body ng-app="Votes.client">
 
-<div ui-view></div>
+<div layout="vertical" layout-fill ui-view>
+    loading...
+</div>
 
-<script type="application/javascript"
-        src="./bower_components/jquery/dist/jquery.min.js"></script>
+
+<link rel="stylesheet" href="style/style.css"/>
+<link rel="stylesheet" href="./bower_components/angular-material/angular-material.css"/>
+
 <script type="application/javascript" src="./bower_components/angular/angular.js"></script>
+<script type="application/javascript" src="./vendors/angular-locale_fr-fr.js"></script>
 <script type="application/javascript"
         src="./bower_components/angular-ui-router/release/angular-ui-router.js"></script>
 <script type="application/javascript" src="./bower_components/angular-animate/angular-animate.js"></script>
+<script type="application/javascript" src="./bower_components/angular-material/angular-material.js"></script>
+<script type="application/javascript" src="./bower_components/hammerjs/hammer.js"></script>
+<script type="application/javascript" src="./bower_components/angular-aria/angular-aria.js"></script>
+<script type="application/javascript" src="./bower_components/angular-messages/angular-messages.js"></script>
 <script type="application/javascript" src="./bower_components/angular-sanitize/angular-sanitize.js"></script>
 <script type="application/javascript" src="./bower_components/angular-touch/angular-touch.js"></script>
 <script type="application/javascript"
         src="./bower_components/angular-restmod/dist/angular-restmod-bundle.js"></script>
 
 
-<script type="application/javascript"
-        src="./bower_components/semantic-ui/build/packaged/javascript/semantic.min.js"></script>
-
-
 <script type="application/javascript" src="js/main.js"></script>
-<script type="application/javascript" src="js/controllers/node.js"></script>
-<script type="application/javascript" src="js/controllers/nodeCreate.js"></script>
+<script type="application/javascript" src="js/controllers/NodeCtrl.js"></script>
+<script type="application/javascript" src="js/controllers/NodeEditCtrl.js"></script>
 <script type="application/javascript" src="js/services/Node.js"></script>
 
 </body>
